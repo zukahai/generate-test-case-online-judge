@@ -7,5 +7,5 @@ int main() {
     for (int i = 0; i < 10; i++) {
         a[i] = random_string(3);
     }
-    print_vector(a);
+    // print_vector(a, cout);
 }

@@ -102,10 +102,10 @@ int main()
     {
         cout << "Test #" << str(i) << ": ";
         gen(i, testnum, "input.txt");
-        cop("input.txt", prob_name + "\\Test" + str(i) + "\\" + prob_name + ".inp");
+        cop("input.txt", prob_name + "\ Test" + str(i) + "\\" + prob_name + ".inp");
         cout << "Generated - ";
         system("solution.exe");
-        cop("output.txt", prob_name + "\\Test" + str(i) + "\\" + prob_name + ".out");
+        cop("output.txt", prob_name + "\ Test" + str(i) + "\\" + prob_name + ".out");
         cout << "Finished \n";
     }
 
@@ -132,12 +132,12 @@ int main()
 
 - **random_vector(n, x)**
 
-	vector <\T> random_vector(int n, T x)
+	vector < T> random_vector(int n, T x)
 	Tạo một vector gồm `n` số ngẫu nhiên trong khoảng `[0, x]`
 
 - **random_vector(n, l, r)**
 
-	vector <\T> random_vector(int n, T l, T r)
+	vector < T> random_vector(int n, T l, T r)
 	Tạo một vector gồm `n` số ngẫu nhiên trong khoảng `[l, r]`
 
 - **random_string(n)**
@@ -161,8 +161,8 @@ int main()
 
 - **print_vector(a, cout)**
 
-    void print_vector(vector <\T> a, ostream &cout): In ra màn hình một vector `a` với dấu cách ngăn cách giữa các phần tử
+    void print_vector(vector < T> a, ostream &cout): In ra màn hình một vector `a` với dấu cách ngăn cách giữa các phần tử
 
 - **print_matrix(a, cout)**
 
-    void print_matrix(vector <\vector <\T>> a, ostream &cout): In ra màn hình một ma trận `a` với dấu cách ngăn cách giữa các phần tử
+    void print_matrix(vector <vector < T>> a, ostream &cout): In ra màn hình một ma trận `a` với dấu cách ngăn cách giữa các phần tử
