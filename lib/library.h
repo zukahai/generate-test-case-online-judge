@@ -1,6 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+template <typename T>
+void print_vector (vector<T> a, ofstream cout) {
+    for (int i = 0; i < a.size(); i++) {
+        cout << a[i] << " ";
+    }
+}
+
+template <typename T>
+void print_matrix (vector<vector<T>> a, ofstream cout) {
+    for (int i = 0; i < a.size(); i++) {
+        for (int j = 0; j < a[i].size(); j++) {
+            cout << a[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+
 long long random();
 long long random(int n);
 long long random(long long l, long long r);

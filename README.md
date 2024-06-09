@@ -49,10 +49,7 @@ void gen(int iTest, int testnum, string target_file)
     vector<int> a = random_vector(n, -1000, 1000);
     
     cout << n << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i] << " ";
-    }
+    print_vector(a, cout);
     return;
 }
 
