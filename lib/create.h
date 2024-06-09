@@ -31,10 +31,10 @@ void compile()
     system("g++ -g -pipe -O2 -s -static -lm -DTHEMIS -Wl,--stack,66060288 solution.cpp -o solution.exe");
 }
 
-void create_all_and_compile(string prob_name, int TestNum)
+void create_all_and_compile(string prob_name, int start, int TestNum)
 {
     create_root(prob_name);
-    for(int i = 1; i <= TestNum; i ++) create_set(prob_name, i);
+    for(int i = start; i <= TestNum; i ++) create_set(prob_name, i);
     compile();
 }
 

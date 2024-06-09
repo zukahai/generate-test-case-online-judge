@@ -5,4 +5,7 @@ int main()
 {
     ifstream cin("input.txt");
     ofstream cout("output.txt");
+    long long a, b;
+    cin >> a >> b;
+    cout << a + b;
 }

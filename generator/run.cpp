@@ -1,14 +1,15 @@
-#include "create.h"
+#include "../lib/create.h"
 #include "generator.h"
 
 int main()
 {
     srand(24022007);
-    int testnum = 100;
+    int start = 1;
+    int testnum = 10;
     string prob_name = "testcase";
 
-    create_all_and_compile(prob_name, testnum);
-    for(int i = 1; i <= testnum; i ++)
+    create_all_and_compile(prob_name, start, testnum);
+    for(int i = start; i <= testnum; i ++)
     {
         cout << "Test #" << str(i) << ": ";
         gen(i, testnum, "input.txt");

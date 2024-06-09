@@ -1,3 +1,6 @@
+#custom ignore file for git
+testcase/
+
 # Prerequisites
 *.d
 
