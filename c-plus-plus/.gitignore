@@ -1,6 +1,9 @@
 #custom ignore file for git
 testcase/
 
+input.txt
+output.txt
+
 # Prerequisites
 *.d
 
