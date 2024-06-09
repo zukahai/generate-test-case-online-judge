@@ -119,29 +119,37 @@ int main()
 ## Các hàm được hỗ trợ bao gồm:
 
 - **random()**
+
 	random(): long long sinh một số ngẫu nhiên trong đoạn `[0, 1e18]`
 
 - **random(a)**
+
 	random(long long a): long long sinh một số ngẫu nhiên trong đoạn `[0, a]`
 
 - **random(a, b)**
+
 	random(long long a, long long b): long long sinh một số ngẫu nhiên trong đoạn `[a, b]`
 
 - **random_vector(n, x)**
-	vector <T> random_vector(int n, T x)
+
+	vector <\T> random_vector(int n, T x)
 	Tạo một vector gồm `n` số ngẫu nhiên trong khoảng `[0, x]`
 
 - **random_vector(n, l, r)**
-	vector <T> random_vector(int n, T l, T r)
+
+	vector <\T> random_vector(int n, T l, T r)
 	Tạo một vector gồm `n` số ngẫu nhiên trong khoảng `[l, r]`
 
 - **random_string(n)**
+
 	string random_string(int n): Tạo một chuỗi ngẫu nhiên `n` ký tự chữ in thường, in hoa và số
 
 - **random_string(n, charset)**
+
 	string random_string(int n, string charset): Tạo ngẫu nhiên 1 chuỗi `n` ký tự được lấy từ chuỗi `charset`.
 
 - **random_string(n, type)**
+
 	string random_string(int n, int type): Tạo ngẫu nhiên 1 chuỗi `n` ký tự theo type:
 	- type = 0: Chỉ gồm các ký tự thường
 	- type = 1: Chỉ gồm các ký tự in hoa
@@ -150,3 +158,11 @@ int main()
 	- type = 4: Gồm các ký tự in thường hoặc số
 	- type = 5: Gồm các ký tự in hoa học số
 	- type = 6: Gồm cả 3 loại ký tử như hàm `random_string(n)`
+
+- **print_vector(a, cout)**
+
+    void print_vector(vector <\T> a, ostream &cout): In ra màn hình một vector `a` với dấu cách ngăn cách giữa các phần tử
+
+- **print_matrix(a, cout)**
+
+    void print_matrix(vector <\vector <\T>> a, ostream &cout): In ra màn hình một ma trận `a` với dấu cách ngăn cách giữa các phần tử
