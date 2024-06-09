@@ -24,8 +24,132 @@
 
 - Bước 6: Chạy file `run.cpp` và tận hưởng thành quả.
 
+## Ví dụ:
+Ví dụ đơn giản cho bài tính tổng 1 dãy số gồm `n` số nguyên
+
+input:
+	- Dòng đầu tiên gồm một số nguyên `n` (1 <= n <= 100)
+	- Dòng thứ hai gồm `n` số nguyên `a1, a2, ..., an` (-1000 <= ai <= 1000)
+Output:
+	- Một số nguyên là tổng của dãy số
+
+File `generator.h`:
+
+```c++
+#include<bits/stdc++.h>
+#include "../lib/library.h"
+using namespace std;
+
+void gen(int iTest, int testnum, string target_file)
+{
+    ofstream cout(target_file);
+    
+    // Cout ra những input cần thiết
+    int n = random(1, 100);
+    vector<int> a = random_vector(n, -1000, 1000);
+    
+    cout << n << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+    return;
+}
+
+
+```
+
+File `solution.cpp`:
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ifstream cin("input.txt");
+    ofstream cout("output.txt");
+    int n;
+    vector<int> a;
+    cin >> n;
+    a.resize(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += a[i];
+    }
+    cout << sum << endl;
+}
+
+```
+
+File `run.cpp`:
+
+```c++
+#include "../lib/create.h"
+#include "generator.h"
+
+int main()
+{
+    srand(24022007);
+    int start = 1;
+    int testnum = 100;
+    string prob_name = "testcase";
+
+    create_all_and_compile(prob_name, start, testnum);
+    for(int i = start; i <= testnum; i ++)
+    {
+        cout << "Test #" << str(i) << ": ";
+        gen(i, testnum, "input.txt");
+        cop("input.txt", prob_name + "\\Test" + str(i) + "\\" + prob_name + ".inp");
+        cout << "Generated - ";
+        system("solution.exe");
+        cop("output.txt", prob_name + "\\Test" + str(i) + "\\" + prob_name + ".out");
+        cout << "Finished \n";
+    }
+
+    return 0;
+}
+
+```
+
+Đây là một ví dụ đơn giản về cách sử dụng trình sinh test case. Bạn có thể tùy chỉnh các thông số trong file `run.cpp` để phù hợp với bài toán của mình. Đặc biệt bạn ở `generator.h` có thể sử dụng các hàm sinh test case có sẵn trong thư viện `library.h` để tạo ra các test case phức tạp hơn, và dựa vào `iTest` để tạo ra dữ liệu phù hợp cho từng test case. Ví dụ với với những `iTest` nhỏ hơn 10, bạn có thể tạo ra các test case đơn giản, còn với những `iTest` lớn hơn 10, bạn có thể tạo ra các test case phức tạp hơn.
+
 ## Các hàm được hỗ trợ bao gồm:
 
-- [**random()**: long long] sinh một số ngẫu nhiên trong đoạn `[0, 10^18]`
+- **random()**
+	random(): long long sinh một số ngẫu nhiên trong đoạn `[0, 1e18]`
 
-- [**random(long long a, long long b)**: long long] sinh một số ngẫu nhiên trong đoạn `[a, b]`
+- **random(a)**
+	random(long long a): long long sinh một số ngẫu nhiên trong đoạn `[0, a]`
+
+- **random(a, b)**
+	random(long long a, long long b): long long sinh một số ngẫu nhiên trong đoạn `[a, b]`
+
+- **random_vector(n, x)**
+	vector <T> random_vector(int n, T x)
+	Tạo một vector gồm `n` số ngẫu nhiên trong khoảng `[0, x]`
+
+- **random_vector(n, l, r)**
+	vector <T> random_vector(int n, T l, T r)
+	Tạo một vector gồm `n` số ngẫu nhiên trong khoảng `[l, r]`
+
+- **random_string(n)**
+	string random_string(int n): Tạo một chuỗi ngẫu nhiên `n` ký tự chữ in thường, in hoa và số
+
+- **random_string(n, charset)**
+	string random_string(int n, string charset): Tạo ngẫu nhiên 1 chuỗi `n` ký tự được lấy từ chuỗi `charset`.
+
+- **random_string(n, type)**
+	string random_string(int n, int type): Tạo ngẫu nhiên 1 chuỗi `n` ký tự theo type:
+	- type = 0: Chỉ gồm các ký tự thường
+	- type = 1: Chỉ gồm các ký tự in hoa
+	- type = 2: Chỉ gồm các ký tự số
+	- type = 3: Gồm các ký tự in thường hoặc in hoa
+	- type = 4: Gồm các ký tự in thường hoặc số
+	- type = 5: Gồm các ký tự in hoa học số
+	- type = 6: Gồm cả 3 loại ký tử như hàm `random_string(n)`
