@@ -1,0 +1,28 @@
+#custom
+testcase/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Dependency directories
+libs/
+lib64/
