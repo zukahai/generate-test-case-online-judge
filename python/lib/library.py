@@ -1,7 +1,7 @@
 import random
 import string
 
-def print_vector(a):
+def print_array(a):
     print(*a)
 
 def print_matrix(a):
@@ -15,22 +15,22 @@ def random_number():
         ans = ans * 10 + random.randint(0, 9)
     return ans
 
-def random_number_range(n):
-    return random_number() % n
-
 def random_number_range(l, r):
     return l + random_number() % (r - l + 1)
 
-def random_vector(n, x):
+def random_number_range(n):
+    return random_number() % n
+
+def random_array(n, x):
     return [random_number_range(x) for _ in range(n)]
 
-def random_vector_range(n, l, r):
+def random_array_range(n, l, r):
     return [random_number_range(l, r) for _ in range(n)]
 
-def random_vector_range(n, l, r):
+def random_array_range(n, l, r):
     return [random_number_range(l, r) for _ in range(n)]
 
-def random_vector(n, x):
+def random_array(n, x):
     return [random_number_range(x) for _ in range(n)]
 
 def random_string(n, charset):
