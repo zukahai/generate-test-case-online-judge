@@ -27,3 +27,11 @@ def cop(source_file, target_file):
         with open(target_file, 'w') as cout:
             for line in cin:
                 cout.write(line)
+
+def clear_file(file):
+    with open(file, 'w') as f:
+        pass
+
+def print(a, end='\n'):
+    with open("output.txt", "a") as output_file:
+        output_file.write(str(a) + end)

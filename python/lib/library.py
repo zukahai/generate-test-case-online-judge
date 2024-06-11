@@ -9,17 +9,13 @@ def print_matrix(a):
         print(*row)
 
 def random_number():
-    ans = 1
-    length = random.randint(1, 17)
-    for _ in range(length):
-        ans = ans * 10 + random.randint(0, 9)
-    return ans
+    return random.randint(1, 10**18)
 
-def random_number_range(l, r):
+def random_number_range(l, r=None):
+    if (r == None):
+        return random_number() % l
     return l + random_number() % (r - l + 1)
 
-def random_number_range(n):
-    return random_number() % n
 
 def random_array(n, x):
     return [random_number_range(x) for _ in range(n)]

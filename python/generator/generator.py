@@ -3,9 +3,15 @@ import sys
 sys.path.append(os.path.abspath('../lib'))
 from library import *
 
+def print(a, end='\n'):
+    with open("input.txt", "a") as output_file:
+        output_file.write(str(a) + end)
+
 def gen(iTest, testnum, target_file):
     with open(target_file, 'w') as f:
         # Write necessary inputs to the file
-        a = random_array(5, 10)
-        f.write(str(len(a)) + '\n')
-        f.write(' '.join(map(str, a)) + '\n')
+        n = random_number_range(1, 10)
+        a = random_array(n, 10)
+        print(n)
+        print(' '.join(map(str, a)) + '\n')
+
