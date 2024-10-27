@@ -120,22 +120,9 @@ int main()
 
 ## Các hàm được hỗ trợ bao gồm:
 
-- **random()**
-
-	random(): long long sinh một số ngẫu nhiên trong đoạn `[0, 1e18]`
-
-- **random(a)**
-
-	random(long long a): long long sinh một số ngẫu nhiên trong đoạn `[0, a]`
-
 - **random(a, b)**
 
 	random(long long a, long long b): long long sinh một số ngẫu nhiên trong đoạn `[a, b]`
-
-- **random_vector(n, x)**
-
-	vector < T> random_vector(int n, T x)
-	Tạo một vector gồm `n` số ngẫu nhiên trong khoảng `[0, x]`
 
 - **random_vector(n, l, r)**
 
