@@ -15,6 +15,7 @@ Bằng các ngôn ngữ: C++, Python, Java, ...
 
 - Có sẵn các hàm sinh testcases cơ bản (random, random_vector, random_string, ...)
 - Tạo ngẫu nhiên nhiều testcases cùng một lúc
+- Hỗ trợ chia subtask cho bài toán
 
 ## Cài đặt
 
