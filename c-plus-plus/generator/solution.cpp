@@ -5,4 +5,8 @@ int main()
 {
     ifstream cin("input.txt");
     ofstream cout("output.txt");
+    // Bài giải của bạn ở dưới đây
+    
+
+
 }
