@@ -8,11 +8,11 @@ void print_vector (vector<T> a, ofstream &cout) {
     }
 }
 
-struct subtask
+struct Subtask
 {
     int percent;
     int lenN;
-    int lenA;
+    int lenAi;
 };
 
 
@@ -35,7 +35,7 @@ string random_string(int n, string charset);
 string random_string(int n);
 string random_string(int n, int type);
 long long random_len(int len);
-vector<long long> random_vector(vector<subtask> subtasks, int iTest, int testnum);
+vector<long long> random_vector(vector<Subtask> subtasks, int iTest, int testnum);
 
 
 /**
@@ -166,7 +166,7 @@ long long random_len(int len) {
     return ans;
 }
 
-vector<long long> random_vector(vector<subtask> subtasks, int iTest, int testnum) {
+vector<long long> random_vector(vector<Subtask> subtasks, int iTest, int testnum) {
     int sumPercent = 0;
     for (int i = 0; i < subtasks.size(); i++) {
         sumPercent += subtasks[i].percent;
@@ -180,7 +180,7 @@ vector<long long> random_vector(vector<subtask> subtasks, int iTest, int testnum
         subtasks[i].percent += subtasks[i - 1].percent;
     }
 
-    subtask st = subtasks[0];
+    Subtask st = subtasks[0];
     for (int i = 0; i < subtasks.size(); i++) {
         if (iTest <= testnum * subtasks[i].percent / 100.0) {
             st = subtasks[i];
@@ -190,7 +190,31 @@ vector<long long> random_vector(vector<subtask> subtasks, int iTest, int testnum
     vector<long long> a;
     int n = random_len(st.lenN);
     for (int i = 0; i < n; i++) {
-        a.push_back(random_len(st.lenA));
+        a.push_back(random_len(st.lenAi));
     }
     return a;
+}
+
+long long random(vector<Subtask> subtasks, int iTest, int testnum) {
+    int sumPercent = 0;
+    for (int i = 0; i < subtasks.size(); i++) {
+        sumPercent += subtasks[i].percent;
+    }
+
+    for (int i = 0; i < subtasks.size(); i++) {
+        subtasks[i].percent = subtasks[i].percent * 100 / sumPercent;
+    }
+
+    for (int i = 1; i < subtasks.size(); i++) {
+        subtasks[i].percent += subtasks[i - 1].percent;
+    }
+
+    Subtask st = subtasks[0];
+    for (int i = 0; i < subtasks.size(); i++) {
+        if (iTest <= testnum * subtasks[i].percent / 100.0) {
+            st = subtasks[i];
+            break;
+        }
+    }
+    return random_len(st.lenN);
 }
