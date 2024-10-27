@@ -4,6 +4,12 @@
 #define int long long
 using namespace std;
 
+vector<subtask> subtasks = {
+    {percent: 20, lenN: 1, lenA: 1},
+    {percent: 30, lenN: 2, lenA: 2},
+    {percent: 50, lenN: 3, lenA: 3},
+};
+
 
 void gen(int iTest, int testnum, string target_file)
 {
@@ -11,9 +17,10 @@ void gen(int iTest, int testnum, string target_file)
     
     // Cout ra những input cần thiết
 
-    int n = random(1, 10);
-    vector<int> a = random_vector(n, 1, 1000000000000);
-    cout << n << endl;
+    vector<long long> a = random_vector(subtasks, iTest, testnum);
+    cout << a.size() << endl;
     print_vector(a, cout);
+
+    
     
 }

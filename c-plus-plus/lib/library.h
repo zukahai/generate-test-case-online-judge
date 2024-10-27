@@ -8,6 +8,14 @@ void print_vector (vector<T> a, ofstream &cout) {
     }
 }
 
+struct subtask
+{
+    int percent;
+    int lenN;
+    int lenA;
+};
+
+
 template <typename T>
 void print_matrix (vector<vector<T>> a, ofstream &cout) {
     for (int i = 0; i < a.size(); i++) {
@@ -26,6 +34,9 @@ vector<long long> random_vector(int n, long long x);
 string random_string(int n, string charset);
 string random_string(int n);
 string random_string(int n, int type);
+long long random_len(int len);
+vector<long long> random_vector(vector<subtask> subtasks, int iTest, int testnum);
+
 
 /**
  * Generates a random long long number.
@@ -144,4 +155,42 @@ string random_string(int n, int type)
             charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             break;
     }
+}
+
+
+long long random_len(int len) {
+    long long ans = 0;
+    for (int i = 0; i < len; i++) {
+        ans = ans * 10 + rand() % 10;
+    }
+    return ans;
+}
+
+vector<long long> random_vector(vector<subtask> subtasks, int iTest, int testnum) {
+    int sumPercent = 0;
+    for (int i = 0; i < subtasks.size(); i++) {
+        sumPercent += subtasks[i].percent;
+    }
+
+    for (int i = 0; i < subtasks.size(); i++) {
+        subtasks[i].percent = subtasks[i].percent * 100 / sumPercent;
+    }
+
+    for (int i = 1; i < subtasks.size(); i++) {
+        subtasks[i].percent += subtasks[i - 1].percent;
+    }
+
+    subtask st = subtasks[0];
+    for (int i = 0; i < subtasks.size(); i++) {
+        if (iTest <= testnum * subtasks[i].percent / 100.0) {
+            st = subtasks[i];
+            break;
+        }
+    }
+    vector<long long> a;
+    int n = random_len(st.lenN);
+    for (int i = 0; i < n; i++) {
+        a.push_back(random_len(st.lenA));
+    }
+    return a;
 }
