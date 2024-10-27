@@ -1,7 +1,7 @@
 #include "../lib/create.h"
 #include "generator.h"
 
-int main()
+main()
 {
     srand(24022007);
     int start = 1;

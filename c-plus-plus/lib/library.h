@@ -20,10 +20,7 @@ void print_matrix (vector<vector<T>> a, ofstream &cout) {
 
 
 long long random();
-long long random(int n);
 long long random(long long l, long long r);
-vector<int> random_vector(int n, int x);
-vector<int> random_vector(int n, int l, int r);
 vector<long long> random_vector(int n, long long l, long long r);
 vector<long long> random_vector(int n, long long x);
 string random_string(int n, string charset);
@@ -46,16 +43,6 @@ long long random()
     return ans;
 }
 
-/**
- * Generates a random long long number within the range [0, n).
- * 
- * @param n The upper bound (exclusive) for the generated random number.
- * @return The generated random number.
- */
-long long random(int n)
-{
-    return random() % n;
-}
 
 /**
  * Generates a random long long number within the range [l, r].
@@ -69,40 +56,7 @@ long long random(long long l, long long r)
     return l + random() % (r - l + 1);
 }
 
-/**
- * Generates a vector of random integers within the range [0, x).
- * 
- * @param n The size of the vector.
- * @param x The upper bound (exclusive) for the generated random integers.
- * @return The generated vector of random integers.
- */
-vector<int> random_vector(int n, int x)
-{
-    vector<int> a(n);
-    for (int i = 0; i < n; i++)
-    {
-        a[i] = random(x);
-    }
-    return a;
-}
 
-/**
- * Generates a vector of random integers within the range [l, r].
- * 
- * @param n The size of the vector.
- * @param l The lower bound (inclusive) for the generated random integers.
- * @param r The upper bound (inclusive) for the generated random integers.
- * @return The generated vector of random integers.
- */
-vector<int> random_vector(int n, int l, int r)
-{
-    vector<int> a(n);
-    for (int i = 0; i < n; i++)
-    {
-        a[i] = random(l, r);
-    }
-    return a;
-}
 
 /**
  * Generates a vector of random long long numbers within the range [l, r].
@@ -118,23 +72,6 @@ vector<long long> random_vector(int n, long long l, long long r)
     for (int i = 0; i < n; i++)
     {
         a[i] = random(l, r);
-    }
-    return a;
-}
-
-/**
- * Generates a vector of random long long numbers within the range [0, x).
- * 
- * @param n The size of the vector.
- * @param x The upper bound (exclusive) for the generated random numbers.
- * @return The generated vector of random long long numbers.
- */
-vector <long long> random_vector(int n, long long x)
-{
-    vector <long long> a(n);
-    for(int i = 0; i < n; i++)
-    {
-        a[i] = random(x);
     }
     return a;
 }
